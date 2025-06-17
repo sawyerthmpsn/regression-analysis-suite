@@ -1,12 +1,13 @@
 import numpy as np
 import pandas as pd
+import linreg as lin
+import matplotlib as plt
 
-file_name = 'data/data.csv'
-
+file_name = 'data/multiple_regression_dataset.csv'
 
 def main():
-    data = pd.read_csv(file_name)
-    print(data)
+    df = pd.read_csv(file_name)
+    lin.summary_multiple(df)
 
 if __name__ == "__main__":
     main()
