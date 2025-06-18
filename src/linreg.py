@@ -13,19 +13,6 @@ def fit_OLS(y, x):
     model = sm.OLS(y, x_temp)
     return model.fit()
 
-# Make a pyplot graph of the data and regression
-def plot_regression(y, x, fit):
-
-      # Initialize the scatter plot
-    plt.scatter(x, y, s = 5)
-
-    # Add the linear fit
-    b0, b1 = fit.params[0], fit.params[1]
-    x_line = np.linspace(min(x), max(x), 100)
-    y_line = b1 * x_line + b0
-    plt.plot(x_line, y_line, color='red', label='Regression Line')
-    plt.show()
-
 def summary_multiple(df: pd.DataFrame):
 
     # Separate dependent and independent variables
@@ -51,4 +38,4 @@ def summary_simple(df: pd.DataFrame, response, parameter, graph):
     print(fit.summary())
 
     if graph:
-        plot_regression(y, x, fit)
+        data_utils.plot_regression(y, x, fit, 'linear')
