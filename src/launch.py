@@ -7,7 +7,7 @@ file_name = 'data/multiple_regression_dataset.csv'
 
 def main():
     df = pd.read_csv(file_name)
-    lin.summary_multiple(df)
+    lin.summary_simple(df, 'Hours_Studied', 'Exam_Score', graph = True)
 
 if __name__ == "__main__":
     main()
