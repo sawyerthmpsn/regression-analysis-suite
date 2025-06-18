@@ -18,7 +18,7 @@ def summary_multiple(df: pd.DataFrame):
     model = sm.OLS(y, x)
     fit = model.fit()
 
-    # Summarize data and plot results
+    # Linear regression summary output
     print(fit.summary())
 
 
@@ -28,20 +28,20 @@ def summary_simple(df: pd.DataFrame, response, parameter):
     # Separate dependent and independent variables
     df = df[[parameter, response]].dropna()
     y = np.array(df[response])
-    x = np.array(df[parameter]) # Assumes all columns besides 0 are parameters
+    x = np.array(df[parameter])
 
     # Create the linear regression model
     x_temp = sm.add_constant(x)
     model = sm.OLS(y, x_temp)
     fit = model.fit()
 
-    # Summarize data and plot results
+    # Linear regression summary output
     print(fit.summary())
 
-    ## Initialize the scatter plot
+    # Initialize the scatter plot
     plt.scatter(x, y, s = 5)
 
-    ## Add the linear fit
+    # Add the linear fit
     b0, b1 = fit.params[0], fit.params[1]
     x_line = np.linspace(min(x), max(x), 100)
     y_line = b1 * x_line + b0
